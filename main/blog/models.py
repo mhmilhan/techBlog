@@ -26,8 +26,8 @@ class Tag(models.Model):
         return self.tag_name
 
 STATUS_CHOICES = (
-    ("Draft", "Draft"),
-    ("Published", "Published")
+    ("draft", "Draft"),
+    ("published", "Published")
 )
 
 
@@ -37,7 +37,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    featured_image = models.ImageField(upload_to='uploads/%Y/%m/%d/')
+    featured_image = models.ImageField(upload_to='images/')
     short_description = models.TextField(max_length=2000)
     content = models.TextField(max_length=5000)
     status = models.CharField(max_length=10, choices=[('draft', 'Draft'), ('published', 'Published')], default='draft')

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="text-brand ml-10 my-6">
+        {{ category }}
+    </h3>
+
+    <div class="grid grid-rows-auto bg-primary">
+        {% for post in posts %}
+        {% if post %}
+        <div class="grid grid-cols-3 bg-accent">
+            {% if forloop.first %}       
+            <div class="col-span-2">
+              <article class="mx-auto grid w-auto grid-cols-2 gap-2 px-4">
+                  <a href="">
+                <header class="col-span-2 mb-3">
+                    <a href="">
+                      <h1 class="text-title mb-1">{{ post.title }}</h1>
+                    </a>
+                  <p class="text-info">{{ post.published_at | timesince }} ago | {{ post.author }}</p>
+                </header>
+                    </a>
+                <figure class="mb-3">
+                  <img
+                    src="./img/one.jpeg"
+                    alt="Description of the image"
+                    class="h-auto w-full rounded-md"
+                  />
+                  <figcaption class="text-info mt-2">
+                    Caption for the image.
+                  </figcaption>
+                </figure>
+
+                <section>
+                    <a href="">
+                      <p class="text-body ml-3">
+                        {{ post.short_description | truncatewords:30 }}
+                      </p>
+                    </a>
+                </section>
+              </article>
+            </div>
+            {% endif %}
+            <div>Hello</div>
+        </div>
+    
+        <div>
+            Hello
+        </div>
+        {% else %}
+            <p>Not found</p>
+        {% endif %}
+    {% endfor %}
+
+    </div>
+
+{% endblock %}

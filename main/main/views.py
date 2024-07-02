@@ -30,5 +30,6 @@ def index(request):
         'robotics_posts': robotics_posts,
         'space_posts': space_posts,
     }
-    return render(request, 'base.html', context)
+
+    return render(request, 'home.html', context)
 
