@@ -3,7 +3,7 @@
 {% block content %}
 
         <!-- Content Start -->
-        <div class="2xl:container 2xl:mx-auto">
+    <div class="2xl:container 2xl:mx-auto">
       <!-- Addvertisement One -->
       <div
         class="font-heading my-2 ml-8 mr-8 grid h-24 w-auto place-items-center items-center bg-whiteLike px-4 py-2 text-center text-lg font-bold"
@@ -89,9 +89,9 @@
             {% for post in posts %}
                 {% if forloop.first %}
               <article class="mx-auto grid w-auto grid-cols-2 gap-2 px-4">
-                  <a href="">
+                  <a href="{% url 'post_detail' post.category.category_name post.slug %}">
                 <header class="col-span-2 mb-3">
-                    <a href="">
+                    <a href="{% url 'post_detail' post.category.category_name post.slug %}">
                       <h1 class="text-title mb-1">{{ post.title }}</h1>
                     </a>
                   <p class="text-info">{{ post.published_at | timesince }} ago | {{ post.author }}</p>
