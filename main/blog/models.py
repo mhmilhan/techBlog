@@ -38,6 +38,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     featured_image = models.ImageField(upload_to='images/')
+    caption = models.CharField(max_length=200)
     short_description = models.TextField(max_length=2000)
     content = models.TextField(max_length=5000)
     status = models.CharField(max_length=10, choices=[('draft', 'Draft'), ('published', 'Published')], default='draft')

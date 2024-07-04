@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_browser_reload",
     "blog",
+    "social",
 ]
 
 MIDDLEWARE = [

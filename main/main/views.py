@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from blog.models import Category, Post
+from social.models import SocialMediaLink
 
 
 def index(request):
@@ -15,6 +16,7 @@ def index(request):
     invention_posts = Post.objects.filter(is_invention=True).order_by('-updated_at')
     robotics_posts = Post.objects.filter(is_robotics=True).order_by('-updated_at')
     space_posts = Post.objects.filter(is_space=True).order_by('-updated_at')
+    social_media_links = SocialMediaLink.objects.all()
 
     context = {
         'categories': categories,
@@ -29,6 +31,7 @@ def index(request):
         'invention_posts': invention_posts,
         'robotics_posts': robotics_posts,
         'space_posts': space_posts,
+        'social_media_links': social_media_links,
     }
 
     return render(request, 'home.html', context)
