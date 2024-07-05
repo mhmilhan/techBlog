@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Category, Post
+from django.db.models import Q
 
 def posts_by_category(request, category_name):
     posts = Post.objects.filter(status='published', category__category_name=category_name)
@@ -39,3 +40,13 @@ def post_detail(request, category_name, slug):
         'post': post,
     }
     return render(request, 'post_detail.html', context)
+
+def search(request):
+    query = request.GET.get('query')
+    posts = Post.objects.filter(Q(title__icontains=query) | Q(short_description__icontains=query) | Q(content__icontains=query), status='published')
+    context = {
+        'posts': posts,
+        'query': query,
+    }
+
+    return render(request, 'search.html', context)

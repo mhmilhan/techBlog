@@ -14,7 +14,8 @@
               <article class="mx-auto grid w-auto grid-cols-2 gap-2 px-4">
                   <a href="">
                 <header class="col-span-2 mb-3">
-                    <a href="">
+                    <a href="{% url 'post_detail' post.category.category_name post.slug %}">
+                        
                       <h1 class="text-title mb-1">{{ post.title }}</h1>
                     </a>
                   <p class="text-info">{{ post.published_at | timesince }} ago | {{ post.author }}</p>
