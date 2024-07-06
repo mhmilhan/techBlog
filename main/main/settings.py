@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django_browser_reload",
     "blog",
     "social",
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

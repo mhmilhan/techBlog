@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block profile %}
+
+    <form action="{% url 'login' %}" method="POST">
+    {% load tailwind_filters %}
+        {% csrf_token %}
+        {{ form | crispy }}
+
+        <button type="submit" class="mx-10 px-3 py-2 border border-primary">Submit</button>
+    </form>
+
+
+
+
+
+{% endblock %}

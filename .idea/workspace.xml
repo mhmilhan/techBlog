@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c1e28882-f863-4279-8be4-e9265511d103" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/css/output.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/posts_by_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/posts_by_category.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,25 +44,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.techBlog.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/backend/test&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.techBlog.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Project/backend/test",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="techBlog" type="Python.DjangoServer" factoryName="Django server">
       <module name="techBlog" />
@@ -121,7 +123,13 @@
       <workItem from="1719986689908" duration="7556000" />
       <workItem from="1720002420909" duration="9670000" />
       <workItem from="1720112930639" duration="3580000" />
-      <workItem from="1720150013396" duration="7420000" />
+      <workItem from="1720150013396" duration="8619000" />
+      <workItem from="1720185053850" duration="1238000" />
+      <workItem from="1720189740959" duration="589000" />
+      <workItem from="1720196327831" duration="9186000" />
+      <workItem from="1720243676736" duration="6036000" />
+      <workItem from="1720256544486" duration="49000" />
+      <workItem from="1720256615523" duration="5082000" />
     </task>
     <servers />
   </component>

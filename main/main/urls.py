@@ -27,6 +27,10 @@ urlpatterns = [
     path('', views.index, name='index'),
     path("__reload__/", include("django_browser_reload.urls")),
     path('posts/search/', search.search, name='search'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
     path('', include('blog.urls')),
+
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

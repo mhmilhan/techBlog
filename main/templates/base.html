@@ -10,134 +10,154 @@
     <link href="{% static 'css/output.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body id="formOpacity">
         
-    <!-- Header Start -->
-        <div class="2xl:container 2xl:mx-auto">
-          <header class="flex justify-between px-2 py-3 sm:px-3 sm:py-4">
-                <div class="flex items-center">
-                  <!-- <img src="" alt="Logo" /> -->
-                  <h1 class="text-brand ml-1 sm:ml-6">Tech Diary</h1>
-                </div>
-        
+<!-- Header Start -->
+<div class="2xl:container 2xl:mx-auto">
+  <header class="flex justify-between px-2 py-3 sm:px-3 sm:py-4">
+    <div class="flex items-center">
+      <!-- <img src="" alt="Logo" /> -->
+      <h1 class="text-brand ml-1 sm:ml-6">Tech Diary</h1>
+    </div>
 
-                <form class="flex h-10 w-1/3 items-center rounded-full border border-primary sm:justify-between sm:px-2 sm:py-2 md:w-1/3" action="{% url 'search' %}" method="GET">
-                  <input
-                    name="query"
-                    type="text"
-                    class="ml-2 mr-2 w-1/2 flex-grow outline-none sm:px-2 md:w-full"
-                    placeholder="Search..."
-                    value="{{ query }}"
-                  />
-                  <button type="submit">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      class="mr-2 h-5 w-5 text-primary"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                      />
-                    </svg>
-                  </button>
-                </form>
+    <form class="flex h-10 w-1/3 items-center rounded-full border border-primary sm:justify-between sm:px-2 sm:py-2 md:w-1/3" action="{% url 'search' %}" method="GET">
+      <input
+        name="query"
+        type="text"
+        class="ml-2 mr-2 w-1/2 flex-grow outline-none sm:px-2 md:w-full"
+        placeholder="Search..."
+        value="{{ query }}"
+      />
+      <button type="submit">
+        <i class="mr-2 h-5 w-5 text-primary fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
 
-        
-                <div class="opacity-1 flex items-center justify-between sm:mr-4">
-                  <a
-                    href="#"
-                    class="flex justify-between rounded-lg bg-primary px-3 py-2 text-white hover:bg-secondary"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-6 w-6 sm:mr-2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                      />
-                    </svg>
-        
-                    <button class="text-profile hidden sm:block">Profile</button>
-                  </a>
-                </div>
-          </header>
-     </div>
+    <div class="opacity-1 flex items-center justify-between sm:mr-4">
+      <a
+        href="{% url 'login' %}"
+        class="flex justify-between rounded-lg bg-primary px-3 py-2 text-white hover:bg-secondary"
+      >
+        <button class="text-profile hidden sm:block" id="profile-btn">
+          <i class="h-6 w-6 mt-1 mr-1 fa-solid fa-user"></i>
+          Profile
+        </button>
+      </a>
+    </div>
+  </header>
+</div>
 
-        <hr class="opacity-5 xl:-mx-5" />
+<hr class="opacity-5 xl:-mx-5" />
+<!-- Header End -->
 
-        <!-- Navbar Start -->
-        <div class="bg-whiteLike xl:-ml-5">
-          <nav class="relative ml-5 shadow-sm 2xl:mx-auto 2xl:w-[1500px]">
-            <div
-              class="flex max-w-screen-xl items-center py-1 pr-32 sm:space-x-4 sm:px-3 sm:py-2 sm:pr-[140px]"
-            >
-              <div
-                class="no-scrollbar text-nav space-x-1 overflow-x-auto whitespace-nowrap sm:space-x-4"
-              >
-                  {% for category in categories %}
-                     <a href="{% url 'posts_by_category' category.category_name %}" class="px-3 hover:text-secondary">{{ category.category_name }}</a>
-                  {% endfor %}
-              </div>
-              <div
-                class="fixed-icons bg-white px-3 sm:space-x-2 sm:px-4 2xl:bg-white"
-              >
-                <a
-                  href="#"
-                  class="rounded-md px-2 py-2 text-sm font-bold text-primary hover:text-secondary sm:px-3"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="4"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  class="rounded-md px-2 py-2 font-bold text-primary hover:text-secondary"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </nav>
+<!-- Navbar Start -->
+<div class="bg-whiteLike xl:-ml-5">
+  <nav class="relative ml-5 shadow-sm 2xl:mx-auto 2xl:w-[1500px]">
+    <div
+      class="flex max-w-screen-xl items-center py-1 pr-32 sm:space-x-4 sm:px-3 sm:py-2 sm:pr-[140px]"
+    >
+      <div
+        class="no-scrollbar text-nav space-x-1 overflow-x-auto whitespace-nowrap sm:space-x-4"
+      >
+        {% for category in categories %}
+        <a
+          href="{% url 'posts_by_category' category.category_name %}"
+          class="px-3 hover:text-secondary"
+          >{{ category.category_name }}</a
+        >
+        {% endfor %}
+      </div>
+      <div class="fixed-icons bg-white px-3 sm:space-x-2 sm:px-4 2xl:bg-white">
+        <a
+          href="#"
+          class="rounded-md px-2 py-2 text-sm font-bold text-primary hover:text-secondary sm:px-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="4"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+            />
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="rounded-md px-2 py-2 font-bold text-primary hover:text-secondary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Profile Form Start -->
+
+    {% block profile %}
+    {% endblock %}
+
+<div class="overlay hidden flex flex-col items-center bg-secondary opacity-15 justify-center fixed inset-0">
+  <div class="profile-form-container hidden inset-0 z-50 relative w-full bg-whiteLike rounded-lg shadow dark:border sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <i class="fa-solid fa-xmark absolute top-2 right-2 text-xl text-primary hover:text-secondary cursor-pointer" id="close-btn"></i>
+    <a href="#" class="flex justify-center items-center py-6 text-brand">
+      <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
+      TechDiary
+    </a>
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+      <form class="space-y-4 md:space-y-6" action="#">
+        <div>
+          <label for="email" class="block text-nav mb-2 ">Email</label>
+          <input type="email" name="email" id="email" class="bg-white border border-primary text-accent rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="email@gmail.com" required>
         </div>
-        <!-- Navbar End -->
+        <div>
+          <label for="password" class="block mb-2 text-nav">Password</label>
+          <input type="password" name="password" id="password" class="bg-white border border-primary text-accent rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Password" required>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-primary rounded bg-white focus:ring-3 focus:ring-primary" required>
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="remember" class="text-info">Remember me</label>
+            </div>
+          </div>
+          <a href="#" class="font-medium text-nav hover:underline">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full text-white font-medium bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary rounded-lg px-5 py-2.5 text-center">Sign in</button>
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+          Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
 
-    <!-- Header End -->
-    
+<!-- Profile Form End -->
+
+
     {% block content %}
     
     {%  endblock %}
@@ -179,6 +199,12 @@
     </div>
     <!-- Footer End -->
 
-        
+
+
+        <section class="bg-black">
+
+        </section>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
