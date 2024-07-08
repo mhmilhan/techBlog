@@ -6,7 +6,7 @@ def posts_by_category(request, category_name):
     posts = Post.objects.filter(status='published', category__category_name=category_name)
     category = get_object_or_404(Category, category_name=category_name)
     latest_posts = Post.objects.filter(is_latest=True).order_by('-updated_at')
-    featured_posts = Post.objects.filter(is_featured=True).order_by('-updated_at')
+    featured_posts = Post.objects.filter(is_featured=True).order_by('-updated_at') [:3]
     popular_posts = Post.objects.filter(is_popular=True).order_by('-updated_at')
     trending_posts = Post.objects.filter(is_trending=True).order_by('-updated_at')
     unboxing_posts = Post.objects.filter(is_unboxing=True).order_by('-updated_at')

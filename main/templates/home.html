@@ -28,7 +28,7 @@
           >
             <figure class="mb-3">
               <img
-                src="./img/two.jpeg"
+                src="{{ trendPost.featured_image.url }}"
                 alt="Description of the image"
                 class="h-44 w-full rounded-md"
               />
@@ -64,7 +64,7 @@
           >
             <figure class="mb-3">
               <img
-                src="./img/one.jpeg"
+                src="{{ popularPost.featured_image.url }}"
                 alt="Description of the image"
                 class="h-44 w-full rounded-md"
               />
@@ -87,22 +87,16 @@
     </div>
 
     <!-- Feature News -->
-    <div
-      class="col-span-1 border-x border-solid border-black bg-white px-2 py-1"
-    >
-      <div class="grid w-auto grid-cols-2 gap-x-3 gap-y-6">
-        <!-- First Post -->
-
-        <div class="col-span-2 bg-white">
-          {% for post in posts %} {% if forloop.first %}
+   <div class="col-span-1 border-x border-solid border-black bg-white px-2 py-1">
+  <div class="grid w-auto grid-cols-2 gap-x-3 gap-y-6">
+    <!-- First Post -->
+    <div class="col-span-2 bg-white">
+      {% for post in posts %}
+        {% if forloop.first %}
           <article class="mx-auto grid w-auto grid-cols-2 gap-2 px-4">
-            <a
-              href="{% url 'post_detail' post.category.category_name post.slug %}"
-            >
+            <a href="{% url 'post_detail' post.category.category_name post.slug %}">
               <header class="col-span-2 mb-3">
-                <a
-                  href="{% url 'post_detail' post.category.category_name post.slug %}"
-                >
+                <a href="{% url 'post_detail' post.category.category_name post.slug %}">
                   <h1 class="text-title mb-1">{{ post.title }}</h1>
                 </a>
                 <p class="text-info">
@@ -110,98 +104,77 @@
                 </p>
               </header>
             </a>
-            <a
-              href="{% url 'post_detail' post.category.category_name post.slug %}"
-            >
+            <a href="{% url 'post_detail' post.category.category_name post.slug %}">
               <figure class="mb-3">
-                <img
-                  src="./img/one.jpeg"
-                  alt="Description of the image"
-                  class="h-auto w-full rounded-md"
-                />
+                <img src="{{ post.featured_image.url }}" alt="Description of the image" class="h-auto w-full rounded-md" />
                 <figcaption class="text-info mt-2">
                   {{ post.caption }}
                 </figcaption>
               </figure>
             </a>
-
             <section>
-              <a
-                href="{% url 'post_detail' post.category.category_name post.slug %}"
-              >
+              <a href="{% url 'post_detail' post.category.category_name post.slug %}">
                 <p class="text-body ml-3">
                   {{ post.short_description | truncatewords:30 }}
                 </p>
               </a>
             </section>
           </article>
-          {% endif %} {% endfor %}
-          <hr class="mt-5 opacity-5" />
-          <div class="text-feature px-3 py-3">Featured Post > ></div>
-          <hr class="mt-1 opacity-5" />
-        </div>
-
-        <!-- Second Post -->
-        <div class="bg-white">
-          {% for featurePost in featured_posts %} {% if forloop.first %}
-          <article class="mx-auto w-auto gap-2 px-4">
-            <header class="mb-3">
-              <a
-                href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}"
-              >
-                <h1 class="text-titleFeature mb-2">{{ featurePost.title }}</h1>
-              </a>
-              <p class="text-info">
-                {{ featurePost.published_at | timesince }} ago | {{featurePost.author}}
-              </p>
-            </header>
-
-            <a
-              href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}"
-            >
-              <figure class="mb-3">
-                <img
-                  src="./img/two.jpeg"
-                  alt="Description of the image"
-                  class="h-44 w-full rounded-md"
-                />
-              </figure>
-            </a>
-          </article>
-          {% endif %} {% endfor %}
-        </div>
-
-        <!-- Third post -->
-        <div class="bg-white">
-          {% for featurePost in featured_posts %} {% if forloop.second %}
-          <article class="mx-auto w-auto gap-2 px-4">
-            <header class="mb-3">
-              <a
-                href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}"
-              >
-                <h1 class="text-titleFeature mb-2">{{ featurePost.title }}</h1>
-              </a>
-              <p class="text-info">
-                {{ featurePost.published_at | timesince }} ago | {{featurePost.author}}
-              </p>
-            </header>
-
-            <a
-              href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}"
-            >
-              <figure class="mb-3">
-                <img
-                  src="./img/two.jpeg"
-                  alt="Description of the image"
-                  class="h-44 w-full rounded-md"
-                />
-              </figure>
-            </a>
-          </article>
-          {% endif %} {% endfor %}
-        </div>
-      </div>
+        {% endif %}
+      {% endfor %}
+      <hr class="mt-5 opacity-5" />
+      <div class="text-feature px-3 py-3">Featured Post > ></div>
+      <hr class="mt-1 opacity-5" />
     </div>
+
+    <!-- Second Post -->
+    <div class="bg-white">
+      {% for featurePost in featured_posts %}
+        {% if forloop.counter == 2 %}
+          <article class="mx-auto w-auto gap-2 px-4">
+            <header class="mb-3">
+              <a href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}">
+                <h1 class="text-titleFeature mb-2">{{ featurePost.title }}</h1>
+              </a>
+              <p class="text-info">
+                {{ featurePost.published_at | timesince }} ago | {{ featurePost.author }}
+              </p>
+            </header>
+            <a href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}">
+              <figure class="mb-3">
+                <img src="{{ featurePost.featured_image.url }}" alt="Description of the image" class="h-44 w-full rounded-md" />
+              </figure>
+            </a>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Third post -->
+    <div class="bg-white">
+      {% for featurePost in featured_posts %}
+        {% if forloop.counter == 3 %}
+          <article class="mx-auto w-auto gap-2 px-4">
+            <header class="mb-3">
+              <a href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}">
+                <h1 class="text-titleFeature mb-2">{{ featurePost.title }}</h1>
+              </a>
+              <p class="text-info">
+                {{ featurePost.published_at | timesince }} ago | {{ featurePost.author }}
+              </p>
+            </header>
+            <a href="{% url 'post_detail' featurePost.category.category_name featurePost.slug %}">
+              <figure class="mb-3">
+                <img src="{{ featurePost.featured_image.url }}" alt="Description of the image" class="h-44 w-full rounded-md" />
+              </figure>
+            </a>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 
     <!-- Unboxing & Reviews -->
     <div class="grid hidden grid-rows-2 gap-3 bg-white xl:block">
@@ -218,7 +191,7 @@
           >
             <figure class="mb-3">
               <img
-                src="./img/two.jpeg"
+                src="{{ unboxPost.featured_image.url }}"
                 alt="Description of the image"
                 class="h-44 w-full rounded-md"
               />
@@ -250,7 +223,7 @@
           >
             <figure class="mb-3">
               <img
-                src="./img/two.jpeg"
+                src="{{ review.featured_image.url }}"
                 alt="Description of the image"
                 class="h-44 w-full rounded-md"
               />
@@ -293,7 +266,7 @@
         <article class="mx-auto w-auto px-4">
           <figure class="mb-3">
             <img
-              src="./img/two.jpeg"
+              src="{{ aiPost.featured_image.url }}"
               alt="Description of the image"
               class="h-full w-full rounded-md md:h-44"
             />
@@ -344,7 +317,8 @@
         </article>
       </div>
     </div>
-    {% endfor %} {% for inventionPost in invention_posts %}
+    {% endfor %}
+      {% for inventionPost in invention_posts %}
     <div class="grid--auto-rows grid gap-2">
       <div class="bg-white">
         <div class="text-feature mb-1 px-3">Ai > ></div>
@@ -352,7 +326,7 @@
         <article class="mx-auto w-auto px-4">
           <figure class="mb-3">
             <img
-              src="./img/two.jpeg"
+              src="{{ inventionPost.featured_image.url }}"
               alt="Description of the image"
               class="h-full w-full rounded-md md:h-44"
             />
@@ -419,7 +393,7 @@
         <article class="mx-auto w-auto px-4">
           <figure class="mb-3">
             <img
-              src="./img/two.jpeg"
+              src="{{ roboticsPost.featured_image.url }}"
               alt="Description of the image"
               class="h-full w-full rounded-md md:h-44"
             />
@@ -485,7 +459,7 @@
         <article class="mx-auto w-auto px-4">
           <figure class="mb-3">
             <img
-              src="./img/two.jpeg"
+              src="{{ spacePost.featured_image.url }}"
               alt="Description of the image"
               class="h-full w-full rounded-md md:h-44"
             />
