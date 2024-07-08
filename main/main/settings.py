@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     "blog",
     "social",
+    "accounts",
     "crispy_forms",
     "crispy_tailwind",
 ]
