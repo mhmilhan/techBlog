@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% include 'dashboard/sidebar.html' %}
+
+    <h2>All Posts</h2>
+    <button class="bg-accent p-4 ml-10"><a href="{% url 'add_posts' %}">Add Post</a></button>
+
+    <table class="table-auto text-center container mx-auto">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Post Title</th>
+              <th>Published At</th>
+              <th>Author</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for post in posts %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ post.title }}</td>
+              <td>{{ post.published_at | date:"d-m-Y" }}</td>
+              <td>{{ post.author }}</td>
+              <td>
+                  <a href="{% url 'edit_post' post.category.category_name post.slug %}" class="ml-6 mr-6"><i class="fa-regular fa-pen-to-square"></i></a>
+                  <a href="{% url 'delete_post' post.category.category_name post.slug %}" class="mx-4"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+    </table>
+
+{% endblock %}

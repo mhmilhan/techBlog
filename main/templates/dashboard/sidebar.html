@@ -1,0 +1,11 @@
+<div class="w-full md:w-1/4 bg-white p-4">
+    <h2 class="text-lg font-bold mb-4">Dashboard</h2>
+    <ul class="space-y-2">
+        <li><a href="{% url 'dashboard' %}" class="block p-2 {% if '/dashboard/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Home</a></li>
+        <li><a href="{% url 'categories' %}" class="block p-2 {% if '/dashboard/categories/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Categories</a></li>
+        <li><a href="{% url 'posts' %}" class="block p-2 {% if '/dashboard/posts/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Posts</a></li>
+        <li><a href="#" class="block p-2 rounded hover:bg-gray-200">Tags</a></li>
+        <li><a href="#" class="block p-2 rounded hover:bg-gray-200">Comments</a></li>
+        <li><a href="#" class="block p-2 rounded hover:bg-gray-200">Logout</a></li>
+    </ul>
+</div>

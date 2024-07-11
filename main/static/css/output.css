@@ -558,6 +558,40 @@ video {
   --tw-contain-style:  ;
 }
 
+.container{
+  width: 100%;
+}
+
+@media (min-width: 640px){
+  .container{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px){
+  .container{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px){
+  .container{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  .container{
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px){
+  .container{
+    max-width: 1536px;
+  }
+}
+
 /* Header */
 
 .header{
@@ -726,10 +760,6 @@ video {
   top: 0.5rem;
 }
 
-.z-40{
-  z-index: 40;
-}
-
 .z-50{
   z-index: 50;
 }
@@ -750,6 +780,11 @@ video {
 .mx-3{
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
+
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mx-6{
@@ -780,16 +815,6 @@ video {
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.my-auto{
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.mx-10{
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 
 .-mt-3{
@@ -832,6 +857,10 @@ video {
   margin-left: 1.25rem;
 }
 
+.ml-6{
+  margin-left: 1.5rem;
+}
+
 .ml-8{
   margin-left: 2rem;
 }
@@ -860,32 +889,12 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-5{
-  margin-top: 1.25rem;
-}
-
-.mt-52{
-  margin-top: 13rem;
-}
-
-.mt-24{
-  margin-top: 6rem;
-}
-
-.ml-20{
-  margin-left: 5rem;
-}
-
-.mr-20{
-  margin-right: 5rem;
-}
-
-.mb-6{
-  margin-bottom: 1.5rem;
-}
-
 .mt-4{
   margin-top: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
 }
 
 .block{
@@ -894,6 +903,10 @@ video {
 
 .flex{
   display: flex;
+}
+
+.table{
+  display: table;
 }
 
 .grid{
@@ -944,8 +957,8 @@ video {
   height: 100%;
 }
 
-.h-screen{
-  height: 100vh;
+.min-h-screen{
+  min-height: 100vh;
 }
 
 .w-1\/2{
@@ -994,6 +1007,10 @@ video {
 
 .flex-grow{
   flex-grow: 1;
+}
+
+.table-auto{
+  table-layout: auto;
 }
 
 .cursor-pointer{
@@ -1065,6 +1082,12 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]){
@@ -1139,6 +1162,11 @@ video {
   background-color: rgb(18 78 102 / var(--tw-bg-opacity));
 }
 
+.bg-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(116 141 146 / var(--tw-bg-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1149,15 +1177,6 @@ video {
   background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
-.bg-secondary{
-  --tw-bg-opacity: 1;
-  background-color: rgb(116 141 146 / var(--tw-bg-opacity));
-}
-
-.bg-opacity-50{
-  --tw-bg-opacity: 0.5;
-}
-
 .p-2{
   padding: 0.5rem;
 }
@@ -1166,20 +1185,12 @@ video {
   padding: 0.625rem;
 }
 
+.p-4{
+  padding: 1rem;
+}
+
 .p-6{
   padding: 1.5rem;
-}
-
-.p-10{
-  padding: 2.5rem;
-}
-
-.p-5{
-  padding: 1.25rem;
-}
-
-.p-3{
-  padding: 0.75rem;
 }
 
 .p-8{
@@ -1263,6 +1274,11 @@ video {
   font-family: Merriweather, sans-serif;
 }
 
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1281,11 +1297,6 @@ video {
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .font-bold{
@@ -1315,16 +1326,12 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.opacity-5{
-  opacity: 0.05;
-}
-
-.opacity-50{
-  opacity: 0.5;
-}
-
 .opacity-15{
   opacity: 0.15;
+}
+
+.opacity-5{
+  opacity: 0.05;
 }
 
 .shadow{
@@ -1508,12 +1515,16 @@ video {
     height: 11rem;
   }
 
-  .md\:h-screen{
-    height: 100vh;
-  }
-
   .md\:w-1\/3{
     width: 33.333333%;
+  }
+
+  .md\:w-1\/4{
+    width: 25%;
+  }
+
+  .md\:w-3\/4{
+    width: 75%;
   }
 
   .md\:w-full{
@@ -1532,9 +1543,8 @@ video {
 }
 
 @media (min-width: 1024px){
-  .lg\:py-0{
-    padding-top: 0px;
-    padding-bottom: 0px;
+  .lg\:flex-row{
+    flex-direction: row;
   }
 }
 

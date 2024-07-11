@@ -28,7 +28,7 @@ def login(request):
             # Ensure the user has a profile
             profile, created = Profile.objects.get_or_create(user=user)
             auth_login(request, user)
-            return redirect('index')
+            return redirect('dashboard')
     else:
         form = CustomAuthenticationForm()
 
