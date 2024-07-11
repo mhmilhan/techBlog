@@ -1311,6 +1311,10 @@ video {
   font-weight: 500;
 }
 
+.italic{
+  font-style: italic;
+}
+
 .text-accent{
   --tw-text-opacity: 1;
   color: rgb(211 217 212 / var(--tw-text-opacity));
@@ -1324,6 +1328,10 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline{
+  text-decoration-line: underline;
 }
 
 .opacity-15{

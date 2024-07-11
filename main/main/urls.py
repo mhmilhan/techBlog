@@ -13,6 +13,7 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('posts/search/', search.search, name='search'),
     path('', include('accounts.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('', include('blog.urls')),
 
