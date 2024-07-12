@@ -3,7 +3,8 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 from blog.models import Category, Post
-from .forms import CategoryForm, PostForm
+from social.models import SocialMediaLink
+from .forms import CategoryForm, PostForm, SocialMediaForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -103,3 +104,41 @@ def delete_post(request, category_name, slug):
     post = get_object_or_404(Post, slug=slug, category__category_name=category_name)
     post.delete()
     return redirect('posts')
+
+def social_media(request):
+    social_media_link = SocialMediaLink.objects.all()
+    context = {
+        'social_media_link': social_media_link,
+    }
+    return render(request, 'dashboard/social_media.html')
+
+def add_social_media(request):
+    if request.method == 'POST':
+        form = SocialMediaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('social_media')
+    form = SocialMediaForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'dashboard/add_social_media.html', context)
+
+def edit_social_media(request, platform):
+    social_media_link = get_object_or_404(SocialMediaLink, platform=platform)
+    if request.method == 'POST':
+        form = SocialMediaForm(request.POST, instance=social_media_link)
+        if form.is_valid():
+            form.save()
+            return redirect('social_media')
+    form = SocialMediaForm(instance=social_media_link)
+    context = {
+        'form': form,
+        'link': social_media_link,
+    }
+    return render(request, 'dashboard/edit_social_media.html', context)
+
+def delete_social_media(request, platform):
+    social_media_link = get_object_or_404(SocialMediaLink, platform=platform)
+    social_media_link.delete()
+    return redirect('social_media')

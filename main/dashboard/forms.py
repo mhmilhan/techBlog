@@ -1,5 +1,7 @@
 from django import forms
 from blog.models import Post, Category
+from social.models import SocialMediaLink
+
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -15,3 +17,8 @@ class PostForm(forms.ModelForm):
             'is_latest', 'is_popular', 'is_trending', 'is_unboxing',
             'is_review', 'is_ai', 'is_invention', 'is_robotics', 'is_space'
         ]
+
+class SocialMediaForm(forms.ModelForm):
+    class Meta:
+        model = SocialMediaLink
+        fields = '__all__'
