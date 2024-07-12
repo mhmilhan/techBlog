@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     "accounts",
     "crispy_forms",
     "crispy_tailwind",
-    'tinymce',
-
 ]
 
 MIDDLEWARE = [
@@ -136,22 +134,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media'
-
-
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': 'silver',
-    'height': 300,
-    'width': '100%',
-    'plugins': 'advlist autolink lists link image charmap print preview hr anchor pagebreak'
-               'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking'
-               'save table directionality emoticons template paste textpattern',
-    'toolbar1': 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |'
-                'bullist numlist outdent indent | link image | print preview media fullpage |'
-                'forecolor backcolor emoticons',
-}
-
-
-
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 

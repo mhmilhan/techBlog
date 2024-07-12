@@ -1,7 +1,5 @@
 from django import forms
 from blog.models import Post, Category
-from tinymce.widgets import TinyMCE
-
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -9,7 +7,6 @@ class CategoryForm(forms.ModelForm):
         fields = '__all__'
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
     class Meta:
         model = Post
         fields = [

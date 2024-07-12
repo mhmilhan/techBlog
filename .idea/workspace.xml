@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/main/dashboard/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/dashboard/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/css/output.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/post_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
@@ -138,7 +137,7 @@
       <workItem from="1720458272869" duration="10060000" />
       <workItem from="1720547606822" duration="19660000" />
       <workItem from="1720667061671" duration="3593000" />
-      <workItem from="1720685189748" duration="8755000" />
+      <workItem from="1720685189748" duration="651000" />
     </task>
     <servers />
   </component>

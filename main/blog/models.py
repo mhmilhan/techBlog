@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from tinymce.models import HTMLField
-
-
 
 # Create your models here.
 class Category(models.Model):
@@ -43,7 +40,7 @@ class Post(models.Model):
     featured_image = models.ImageField(upload_to='images/')
     caption = models.CharField(max_length=200)
     short_description = models.TextField(max_length=2000)
-    content = HTMLField()
+    content = models.TextField(max_length=5000)
     status = models.CharField(max_length=10, choices=[('draft', 'Draft'), ('published', 'Published')], default='draft')
     is_featured = models.BooleanField(default=False)
     is_latest = models.BooleanField(default=False)
