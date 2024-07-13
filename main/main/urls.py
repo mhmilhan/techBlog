@@ -14,6 +14,7 @@ urlpatterns = [
     path('posts/search/', search.search, name='search'),
     path('', include('accounts.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('', include('users.urls')),
     path('', include('blog.urls')),
 
 

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include 'dashboard/sidebar.html' %}
+
+    {% if perms.auth.view_user %}
+            <h2>All Posts</h2>
+            <button class="bg-accent p-4 ml-10"><a href="{% url 'add_user' %}">Add Users</a></button>
+
+            <table class="table-auto text-center container mx-auto">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Full Name</th>
+                      <th>username</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>is_active</th>
+                      <th>Staff</th>
+                      <th>SuperUser</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for user in users %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ user.first_name }} {{ user.last_name}}</td>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.mobile_number }}</td>
+                      <td>{% if user.is_active %} <i class="fa fa-check text-primary"></i> {% else %} <i class="fa fa-times text-secondary"></i> {% endif %}</td>
+                      <td>{% if user.is_staff %} <i class="fa fa-check text-primary"></i> {% else %} <i class="fa fa-times text-secondary"></i> {% endif %}</td>
+                      <td>{% if user.is_superuser %} <i class="fa fa-check text-primary"></i> {% else %} <i class="fa fa-times text-secondary"></i> {% endif %}</td>
+                      <td>
+                          <a href="{% url "edit_user" user.username %}" class="ml-6 mr-6"><i class="fa-regular fa-pen-to-square"></i></a>
+                          <a href="{% url "delete_user" user.username %}" class="mx-4"><i class="fa-solid fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+                    {% endfor %}
+                  </tbody>
+            </table>
+            {% else %}
+                  <h2>You don't have the permission to this page</h2>
+        {% endif %}
+{% endblock %}
+

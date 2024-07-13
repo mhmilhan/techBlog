@@ -5,6 +5,9 @@
         <li><a href="{% url 'categories' %}" class="block p-2 {% if '/dashboard/categories/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Categories</a></li>
         <li><a href="{% url 'posts' %}" class="block p-2 {% if '/dashboard/posts/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Posts</a></li>
         <li><a href="{% url 'social_media' %}" class="block p-2 {% if '/dashboard/social-media/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Social Media</a></li>
+       {% if perms.auth.view_user %}
+        <li><a href="{% url 'users' %}" class="block p-2 {% if '/users/' == request.path %} bg-primary {% endif %} rounded hover:bg-gray-200">Users</a></li>
+       {% endif %}
         <li><a href="#" class="block p-2 rounded hover:bg-gray-200">Comments</a></li>
         <li><a href="#" class="block p-2 rounded hover:bg-gray-200">Logout</a></li>
     </ul>

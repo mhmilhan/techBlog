@@ -6,12 +6,11 @@ from .models import Profile
 class RegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True, help_text='')
     last_name = forms.CharField(max_length=30, required=True, help_text='')
-    mobile_number = forms.CharField(max_length=15, required=True, help_text='')
     image = forms.ImageField(required=True)
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'mobile_number', 'password1', 'password2', 'image')
+        fields = ('username', 'first_name', 'last_name', 'password1', 'password2', 'image')
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -34,10 +33,6 @@ class RegistrationForm(UserCreationForm):
         self.fields['last_name'].widget.attrs.update({
             'class': 'block w-full px-3 py-2 border border-primary rounded-md shadow-sm placeholder-accent focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm',
             'placeholder': 'Last Name'
-        })
-        self.fields['mobile_number'].widget.attrs.update({
-            'class': 'block w-full px-3 py-2 border border-primary rounded-md shadow-sm placeholder-accent focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm',
-            'placeholder': 'Mobile Number'
         })
         self.fields['image'].widget.attrs.update({
             'class': 'block w-full px-3 py-2 border border-primary rounded-md shadow-sm placeholder-accent focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm',

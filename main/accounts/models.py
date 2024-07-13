@@ -6,7 +6,9 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile_pics', blank=True, null=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
-    mobile_number = models.CharField(max_length=15, blank=True)
+
+
+
 
     def __str__(self):
         return self.user.username
@@ -24,5 +26,4 @@ class Profile(models.Model):
                 profile.image = self.image
                 profile.first_name = self.first_name
                 profile.last_name = self.last_name
-                profile.mobile_number = self.mobile_number
                 profile.save()
